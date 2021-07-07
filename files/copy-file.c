@@ -2,6 +2,8 @@
 #include <fcntl.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include "macros.h"
 
 /* Information
 *  
@@ -10,18 +12,20 @@
 *
 */
 
-#define ERR(fd, string) if(fd < 0) { \
-				perror(string); \
-				exit(0);\
-			}
+//#define ERR(fd, string) if(fd < 0) { \
+//				perror(string); \
+//				exit(0);\
+//			}
 
 int main(int argc, char **argv)
 {
-	if(argc != 3) {
+	ERR_ARGC(argc, 3, "Exceprion: <a.out> <source-file> <dest-file>");
+
+/*	if(argc != 3) {
 		puts("Exception: <a.out> <source-file> <dest-file>");
 		exit(0);
 	}
-
+*/
 	int fd_src, fd_dest;
 	char buf;
 
