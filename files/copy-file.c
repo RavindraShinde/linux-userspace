@@ -21,28 +21,25 @@ int main(int argc, char **argv)
 {
 	ERR_ARGC(argc, 3, "Exceprion: <a.out> <source-file> <dest-file>");
 
-/*	if(argc != 3) {
-		puts("Exception: <a.out> <source-file> <dest-file>");
-		exit(0);
-	}
-*/
 	int fd_src, fd_dest;
 	char buf;
-
-	//bzero(buf, sizeof(buf));
 
 	fd_src = open( argv[1], O_RDONLY, 0664);
 	ERR(fd_src, "open");
 
-	fd_dest = open(argv[2], O_WRONLY, 0664);
+	fd_dest = open(argv[2], O_WRONLY | O_CREAT, 0664);
 	ERR(fd_src, "open");
 
 	while( read(fd_src, &buf, 1) > 0 ) {
+
 		if(write(fd_dest, &buf, 1) < 0) {
 			perror("write");
 			exit(0);
 		}
 	}
+
+	close(fd_src);
+	close(fd_dest);
 
 	puts("File copyied ...");
 

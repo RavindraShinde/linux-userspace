@@ -18,10 +18,8 @@ int main(int argc, char **argv)
 
 	while( read(fd, &ch, 1) > 0){
 		chars++;
-		if(ch == '\n' || ch == '\0') lines++;
-		if(ch == ' ' || ch == '\n') {
-			words++;
-		}
+		if(ch == '\n') lines++;
+		if(ch == ' ' || ch == '\n') words++;
 	}
 
 	printf("%s: %d %d %d\n", argv[1], chars, words, lines);
