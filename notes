@@ -1,0 +1,22 @@
+exit value - 
+
+$ ls <valid-file>
+$ $?
+
+observe the value - 0, is the exit value
+
+$ ls <invalid-file>
+$ $?
+
+observe the value - non-zero
+
+-----------------------------------------------
+
+Standard IO - 
+
+file descriptors:
+0 for stdin , 
+1 for stdout, 
+2 for stderr
+
+

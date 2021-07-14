@@ -1,0 +1,9 @@
+Kernel is not maintaining any information, how many jobs 
+are attached to a particular message queue connectionless.
+
+Message queue are slow to transfer the data from one process
+to another process.
+
+Message queue are slover in communication because, involvement
+of kernel is more, to identify the message with a specific 
+type and after reading the message is cleared 
